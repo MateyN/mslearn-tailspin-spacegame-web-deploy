@@ -9,7 +9,7 @@ variables:
 
 schedules:
 - cron: '0 3 * * *'
-  displayName: 'Deploy every day at 3 AM'
+  displayName: 'Deploy every day at 3 A.M.'
   branches:
     include:
     - release
@@ -98,10 +98,6 @@ stages:
           steps:
           - download: current
             artifact: drop
-          - script: |
-              echo "Waiting for 30 seconds before deploying..."
-              sleep 30
-            displayName: 'Introduce delay before deployment'
           - task: AzureWebApp@1
             displayName: 'Azure App Service Deploy: website'
             inputs:
